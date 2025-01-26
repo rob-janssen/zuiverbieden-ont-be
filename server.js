@@ -1,4 +1,4 @@
-import "express-async-errors";
+// import "express-async-errors";
 import * as dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== "production") {
