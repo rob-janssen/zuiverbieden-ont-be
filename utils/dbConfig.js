@@ -6,15 +6,15 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
-console.log(process.env.AZ_CLIENT_ID);
-console.log(process.env.AZ_CLIENT_SECRET);
-console.log(process.env.AZ_TENANT_ID);
+console.log(process.env.AZ_CLIENTID);
+console.log(process.env.AZ_CLIENTSECRET);
+console.log(process.env.AZ_TENANTID);
 
 const msalConfig = {
   auth: {
-    clientId: process.env.AZ_CLIENT_ID,
-    authority: `https://login.microsoftonline.com/${process.env.AZ_TENANT_ID}`,
-    clientSecret: process.env.AZ_CLIENT_SECRET,
+    clientId: process.env.AZ_CLIENTID,
+    authority: `https://login.microsoftonline.com/${process.env.AZ_TENANTID}`,
+    clientSecret: process.env.AZ_CLIENTSECRET,
   },
 };
 
