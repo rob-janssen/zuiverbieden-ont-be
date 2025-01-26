@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== "production") {
   // dotenv.config();
-  console.log(process.env.AZ_CLIENTID);
+  console.log(process.env);
   console.log(process.env.AZ_CLIENTSECRET);
   console.log(process.env.AZ_TENANTID);
 }
