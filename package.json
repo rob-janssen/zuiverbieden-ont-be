@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.jsx",
   "scripts": {
-    "server": "nodemon server *.jsx",
+    "server": "node server *.jsx",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "npm run server"
