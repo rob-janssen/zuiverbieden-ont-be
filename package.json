@@ -6,7 +6,8 @@
     "server": "npm install && node server *.jsx",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "build": "npm run server"
+    "build": "npm run server",
+    "start": "node server.js"
   },
   "type": "module",
   "author": "",

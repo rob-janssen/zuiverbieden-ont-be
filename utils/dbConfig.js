@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
-console.log(process.env.APPSETTING_AZ_CLIENTID);
+console.log(process.env.AZ_CLIENTID);
 console.log(process.env.AZ_CLIENTSECRET);
 console.log(process.env.AZ_TENANTID);
 
