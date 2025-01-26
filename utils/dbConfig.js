@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== "production") {
   // dotenv.config();
-  console.log(process.env);
+  console.log(
+    process.env.AZUREAPPSERVICE_CLIENTID_1949BE9B3D954A3899F544BA26470582
+  );
   console.log(process.env.AZ_CLIENTSECRET);
   console.log(process.env.AZ_TENANTID);
 }
