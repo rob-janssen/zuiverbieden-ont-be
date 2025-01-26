@@ -1,7 +1,10 @@
 import { Sequelize } from "sequelize";
 import { ConfidentialClientApplication } from "@azure/msal-node";
 import dotenv from "dotenv";
-dotenv.config();
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 const msalConfig = {
   auth: {
