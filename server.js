@@ -5,10 +5,6 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
-console.log(process.env.AZ_CLIENTID);
-console.log(process.env.AZ_CLIENTSECRET);
-console.log(process.env.AZ_TENANTID);
-
 import express from "express";
 const app = express();
 
