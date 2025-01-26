@@ -6,6 +6,10 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
+console.log(process.env.AZ_CLIENT_ID);
+console.log(process.env.AZ_CLIENT_SECRET);
+console.log(process.env.AZ_TENANT_ID);
+
 const msalConfig = {
   auth: {
     clientId: process.env.AZ_CLIENT_ID,
