@@ -6,8 +6,7 @@
     "server": "nodemon server *.jsx",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npm run server"
   },
   "type": "module",
   "author": "",
