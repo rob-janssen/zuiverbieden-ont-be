@@ -62,6 +62,20 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8E6BBF0F09E04F919F32191FCFD694F9 }}
           client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
 
+      - name: Set environment variables
+        run: |
+          echo "AZURE_CLIENT_ID=${{ secrets.AZUREAPPSERVICE_CLIENTID_1949BE9B3D954A3899F544BA26470582 }}" >> $GITHUB_ENV
+          echo "AZURE_TENANT_ID=${{ secrets.AZUREAPPSERVICE_TENANTID_67E41E16A46149DE95FB0DCACFC1888C }}" >> $GITHUB_ENV
+          echo "AZURE_SUBSCRIPTION_ID=${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8E6BBF0F09E04F919F32191FCFD694F9 }}" >> $GITHUB_ENV
+          echo "AZURE_CLIENT_SECRET=${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}" >> $GITHUB_ENV
+
+      - name: Log environment variables
+        run: |
+          echo "AZURE_CLIENT_ID=$AZURE_CLIENT_ID"
+          echo "AZURE_TENANT_ID=$AZURE_TENANT_ID"
+          echo "AZURE_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID"
+          echo "AZURE_CLIENT_SECRET=$AZURE_CLIENT_SECRET"
+
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
