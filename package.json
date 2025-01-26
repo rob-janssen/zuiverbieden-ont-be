@@ -1,9 +1,9 @@
 {
   "name": "zuiverbieden-ont",
   "version": "1.0.0",
-  "main": "server.jsx",
+  "main": "server.js",
   "scripts": {
-    "server": "npm install && node server *.jsx",
+    "server": "npm install && node server *.js",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "npm run server",
