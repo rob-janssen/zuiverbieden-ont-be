@@ -3,12 +3,7 @@ import { ConfidentialClientApplication } from "@azure/msal-node";
 import dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== "production") {
-  // dotenv.config();
-  console.log(
-    process.env.AZUREAPPSERVICE_CLIENTID_1949BE9B3D954A3899F544BA26470582
-  );
-  console.log(process.env.AZ_CLIENTSECRET);
-  console.log(process.env.AZ_TENANTID);
+  dotenv.config();
 }
 
 const msalConfig = {
@@ -60,6 +55,9 @@ async function authenticate() {
 authenticate();
 
 (async () => {
+  // await sequelize.getQueryInterface().dropTable("ItemCandidates");
+  // await sequelize.getQueryInterface().dropTable("Items");
+  // await sequelize.getQueryInterface().dropTable("Candidates");
   await sequelize.sync({
     // force: true,
     alter: true,

@@ -9,13 +9,23 @@ const Item = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-
+    status: {
+      type: DataTypes.ENUM("active", "inactive"),
+      allowNull: false,
+      defaultValue: "active",
+    },
+    deadline: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: () =>
+        new Date(new Date().setDate(new Date().getDate() + 7)),
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {

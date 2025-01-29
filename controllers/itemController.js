@@ -1,9 +1,12 @@
 import Item from "../models/ItemModel.js";
+import Candidate from "../models/CandidateModel.js";
 
 // Get all item
 export const getAllItems = async (req, res) => {
   try {
-    const items = await Item.findAll();
+    const items = await Item.findAll({
+      include: { model: Candidate },
+    });
     res.status(200).json(items);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -13,7 +16,14 @@ export const getAllItems = async (req, res) => {
 // Get one item
 export const getItemById = async (req, res) => {
   try {
-    const item = await Item.findById(req.params.id);
+    const item = await Item.findOne({
+      where: { item_id: req.params.id },
+      include: [
+        {
+          model: Candidate,
+        },
+      ],
+    });
     if (item == null) {
       return res.status(404).json({ message: "Item not found" });
     }

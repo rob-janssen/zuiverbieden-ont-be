@@ -16,6 +16,7 @@ import helmet from "helmet";
 import authRouter from "./routes/authRouter.js";
 import adminRouter from "./routes/adminRouter.js";
 import itemRouter from "./routes/itemRouter.js";
+import candidateRouter from "./routes/candidateRouter.js";
 
 // public
 
@@ -37,9 +38,10 @@ app.get("/api/v1/test", (req, res) => {
 
 // Use of routers and middleware
 // Todo: use routers and middleware
-app.use("/api/v1/admin", authenticateUser, adminRouter);
+app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/items", itemRouter);
+app.use("/api/v1/candidates", candidateRouter);
 
 // error route
 app.get("*", (req, res) => {

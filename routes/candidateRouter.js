@@ -1,18 +1,20 @@
 import { Router } from "express";
 const router = Router();
 import rateLimiter from "express-rate-limit";
+
+import {
+  getAllCandidates,
+  getCandidateById,
+  createCandidate,
+  updateCandidate,
+  deleteCandidate,
+  attachCandidateToItem,
+} from "../controllers/candidateController.js";
+
 import {
   authorizePermissions,
   authenticateUser,
 } from "../middleware/authMiddleware.js";
-
-import {
-  getAllItems,
-  getItemById,
-  updateItem,
-  createItem,
-  deleteItem,
-} from "../controllers/itemController.js";
 
 const apiLimiter = rateLimiter({
   windowMs: 10 * 60 * 1000, // 10 minutes
@@ -20,42 +22,48 @@ const apiLimiter = rateLimiter({
   message: { messagee: "Maximale pogingen bereikt. Wacht 10 minuten." },
 });
 
-// Todo: Add apilimiter middleware to limit the amount of requests
-
 router.get(
-  "/allitems",
-  // apiLimiter,
+  "/all",
+  apiLimiter,
   authenticateUser,
   authorizePermissions("admin", "superuser"),
-  getAllItems
+  getAllCandidates
 );
 router.get(
   "/:id",
-  // apiLimiter,
+  apiLimiter,
   authenticateUser,
   authorizePermissions("admin", "superuser"),
-  getItemById
+  getCandidateById
 );
 router.post(
   "/",
-  // apiLimiter,
+  apiLimiter,
   authenticateUser,
   authorizePermissions("admin", "superuser"),
-  createItem
+  createCandidate
 );
+
 router.put(
   "/:id",
-  // apiLimiter,
+  apiLimiter,
   authenticateUser,
   authorizePermissions("admin", "superuser"),
-  updateItem
+  updateCandidate
 );
 router.delete(
   "/:id",
-  // apiLimiter,
+  apiLimiter,
   authenticateUser,
   authorizePermissions("admin", "superuser"),
-  deleteItem
+  deleteCandidate
+);
+router.post(
+  "/:candidateId/attach",
+  apiLimiter,
+  authenticateUser,
+  authorizePermissions("admin", "superuser"),
+  attachCandidateToItem
 );
 
 export default router;
